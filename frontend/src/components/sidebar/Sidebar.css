@@ -1,0 +1,66 @@
+.sidebar {
+  flex: 2.5;
+  height: calc(100vh - 50px); 
+  position: sticky; /* 要素をスクロール領域内で固定位置に配置 */
+  top: 50px; /* スクロール領域の上端からの距離 */
+}
+
+.sidebarWrapper {
+  padding: 20px;
+}
+
+.sidebarList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebarListItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 4px 6px;
+  cursor: pointer;
+  box-shadow: 9px 12px 9px -9px #777777;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.sidebarListItem:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.sidebarIcon {
+  font-size: 35px !important;
+  margin-right: 10px;
+}
+
+.sidebarListItemText {
+  font-size: 20px;
+  padding-top: 3px;
+}
+
+.sidebarUnderbar {
+  margin: 20px 0px;
+}
+
+.sidebarFriendList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+}
+
+.sidebarFriend {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sidebarFriendImg {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
