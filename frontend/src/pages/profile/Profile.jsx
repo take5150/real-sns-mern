@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import Topbar from "../../components/topbar/Topbar";
 import TimeLine from "../../components/timeline/TimeLine";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Rightbar from "../../components/rightbar/Rightbar";
+import axios from "axios";
 
 export default function Profile() {
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await axios.get(`/users?username=takehiro3`);
+      setUser(response.data);
+    };
+    fetchUser();
+  }, []);
+
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div>
@@ -27,13 +38,13 @@ export default function Profile() {
               />
             </div>
             <div className="profileInfo">
-              <h4 className="profileInfoName">Take</h4>
-              <span className="profileInfoDesc">Hello</span>
+              <h4 className="profileInfoName">{user.username}</h4>
+              <span className="profileInfoDesc">{user.desc}</span>
             </div>
           </div>
           <div className="profileRightButtom">
-            <TimeLine />
-            <Rightbar profile />
+            <TimeLine username="takehiro3" />
+            <Rightbar user={user} />
           </div>
         </div>
       </div>
