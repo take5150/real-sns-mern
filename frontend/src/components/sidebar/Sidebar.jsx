@@ -9,6 +9,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import CloseFriend from "../closefirend/CloseFriend";
 
 import { Users } from "../../dummyData";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -17,7 +18,9 @@ export default function Sidebar() {
         <ul className="sidebarList">
           <li className="sidebarListItem">
             <HomeIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">ホーム</span>
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <span className="sidebarListItemText">ホーム</span>
+            </Link>
           </li>
           <li className="sidebarListItem">
             <SearchIcon className="sidebarIcon" />
@@ -33,7 +36,12 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <PersonIcon className="sidebarIcon" />
-            <span className="sidebarListItemText">プロフィール</span>
+            <Link
+              to="/profile/take"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <span className="sidebarListItemText">プロフィール</span>
+            </Link>
           </li>
           <li className="sidebarListItem">
             <SettingsIcon className="sidebarIcon" />

@@ -5,6 +5,7 @@ import { MoreVert } from "@mui/icons-material/";
 import { Users } from "../../dummyData";
 
 export default function Post({ post }) {
+  const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
   const user = Users.filter((user) => user.id === post.userId);
 
   const [like, setLike] = useState(post.like);
@@ -21,7 +22,7 @@ export default function Post({ post }) {
         <div className="postTop">
           <div className="postTopLeft">
             <img
-              src={user[0].profilePicture}
+              src={PUBLIC_FOLDER + user[0].profilePicture}
               alt=""
               className="postProfileImg"
             />
@@ -34,7 +35,7 @@ export default function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">SNS creating</span>
-          <img src={post.photo} alt="" className="postImg" />
+          <img src={PUBLIC_FOLDER + post.photo} alt="" className="postImg" />
         </div>
         <div className="postBottom">
           <div className="postButtomLeft">
