@@ -33,23 +33,34 @@
 }
 
 .loginBox {
-  height: 300px;
+  height: 400px;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginInput {
   height: 50px;
+  width: 80%;
   border-radius: 10px;
   border: 1px solid gray;
   font-size: 18px;
   padding-left: 20px;
   margin-bottom: 15px;
+}
 
+.loginInputPassword {
+  height: 50px;
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  padding-left: 20px;
+  margin-bottom: 50px;
 }
 
 .loginInput:focus {
@@ -74,11 +85,12 @@
   text-align: center;
   color: #41428b;
   margin-bottom: 5px;
+  text-decoration: none;
 }
 
 .loginRegister {
   height: 50px;
-  width: 60%;
+  width: 100%;
   align-self: center;
   border-radius: 10px;
   border: none;
