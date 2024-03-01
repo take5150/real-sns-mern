@@ -37,7 +37,8 @@ export default function Sidebar() {
           <li className="sidebarListItem">
             <PersonIcon className="sidebarIcon" />
             <Link
-              to="/profile/take"
+              // to={`/profile/${user.username}`}
+              to="/profile/takehiro3"
               style={{ textDecoration: "none", color: "black" }}
             >
               <span className="sidebarListItemText">プロフィール</span>

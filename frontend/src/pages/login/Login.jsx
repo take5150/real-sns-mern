@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 import "./Login.css";
+import { loginCall } from "../../actionCalls";
+import { AuthContext } from "../../state/AuthContext";
 
 export default function Login() {
+  const email = useRef();
+  const password = useRef();
+  const { user, isFetching, error, dispatch } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    loginCall(
+      {
+        email: email.current.value,
+        password: password.current.value,
+      },
+      dispatch
+    );
+  };
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -10,14 +28,26 @@ export default function Login() {
           <span className="loginDesc">みんなと楽しく会話しましょう。</span>
         </div>
         <div className="loginRight">
-          <div className="loginBox">
+          <form className="loginBox" onSubmit={(e) => handleSubmit(e)}>
             <p className="loginMsg">ログインはこちらから</p>
-            <input type="text" className="loginInput" placeholder="EMail" />
-            <input type="text" className="loginInput" placeholder="Password" />
+            <input
+              type="email"
+              className="loginInput"
+              placeholder="EMail"
+              required
+              ref={email}
+            />
+            <input
+              type="password"
+              className="loginInput"
+              placeholder="Password"
+              required
+              ref={password}
+            />
             <button className="loginButton">ログイン</button>
             <span className="loginForgotButton">パスワードを忘れた方へ</span>
             <button className="loginRegister">アカウント作成</button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
