@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Register() {
@@ -8,6 +8,8 @@ export default function Register() {
   const email = useRef();
   const password = useRef();
   const confirmation = useRef();
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +25,7 @@ export default function Register() {
         };
 
         await axios.post("/auth/register", user);
+        navigate("/login");
       } catch (err) {}
     }
   };
