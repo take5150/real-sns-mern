@@ -90,4 +90,5 @@
   cursor: pointer;
   object-fit: cover;
   margin-left: 5px;
+  border-radius: 50%;
 }

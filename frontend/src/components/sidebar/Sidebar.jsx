@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Sidebar.css";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
@@ -10,8 +10,10 @@ import CloseFriend from "../closefirend/CloseFriend";
 
 import { Users } from "../../dummyData";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../state/AuthContext";
 
 export default function Sidebar() {
+  const { user } = useContext(AuthContext);
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -37,8 +39,7 @@ export default function Sidebar() {
           <li className="sidebarListItem">
             <PersonIcon className="sidebarIcon" />
             <Link
-              // to={`/profile/${user.username}`}
-              to="/profile/takehiro3"
+              to={`/profile/${user.username}`}
               style={{ textDecoration: "none", color: "black" }}
             >
               <span className="sidebarListItemText">プロフィール</span>
